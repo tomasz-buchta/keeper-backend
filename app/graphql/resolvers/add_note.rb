@@ -2,7 +2,7 @@ module Resolvers
   class AddNote < GraphQL::Function
     argument :title, !types.String
     argument :body,  types.String
-    argument :tags, !types[types.String]
+    argument :tags, types[types.String]
 
     type Types::NoteType
 
