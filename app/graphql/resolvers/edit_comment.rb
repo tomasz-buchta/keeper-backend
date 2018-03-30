@@ -6,9 +6,9 @@ module Resolvers
     type Types::CommentType
 
     def call(_obj, args, _ctx)
-      comment = Comment.find(args.id)
-      comment.update_attributes(body: args.body)
-      comment
+      Comment.find(args.id).tap do |comment|
+        comment.update_attributes(body: args.body)
+      end
     end
   end
 end

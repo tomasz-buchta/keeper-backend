@@ -5,9 +5,9 @@ module Resolvers
     type Types::CommentType
 
     def call(_obj, args, _ctx)
-      comment = Comment.find(args.id)
-      comment&.delete
-      comment
+      Comment.find(args.id).tap do |comment|
+        comment&.delete
+      end
     end
   end
 end

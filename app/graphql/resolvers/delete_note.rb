@@ -5,9 +5,9 @@ module Resolvers
     type Types::NoteType
 
     def call(_obj, args, _ctx)
-      note = Note.find(args.id)
-      note&.delete
-      note
+      Note.find(args.id).tap do |note|
+        note&.delete
+      end
     end
   end
 end
