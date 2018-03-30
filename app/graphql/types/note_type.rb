@@ -7,4 +7,14 @@ Types::NoteType = GraphQL::ObjectType.define do
   field :title, types.String
   field :body, types.String
   field :tags, types[types.String], property: :tag_list
+
+  StateEnum = GraphQL::EnumType.define do
+    name "States"
+    description "States of Note"
+    value("active", "Active Note")
+    value("complete", "Completed Note")
+    value("archived", "Archived Note")
+  end
+
+  field :state, StateEnum, "Note State"
 end
