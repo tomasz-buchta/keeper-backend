@@ -6,4 +6,5 @@ Types::NoteType = GraphQL::ObjectType.define do
   field :id, types.ID
   field :title, types.String
   field :body, types.String
+  field :tags, types[types.String], property: :tag_list
 end
