@@ -6,7 +6,7 @@ module Resolvers
 
     def call(_obj, args, _ctx)
       Note.find(args.id).tap do |note|
-        note&.delete
+        note&.destroy
       end
     end
   end
