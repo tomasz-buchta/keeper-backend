@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe NoteSearchService do
-  let(:tags) { [] }
+  let(:tags) { nil }
   let(:state) { nil }
   let(:title) { nil }
   subject { described_class.new(tags: tags, state: state, title: title).call }

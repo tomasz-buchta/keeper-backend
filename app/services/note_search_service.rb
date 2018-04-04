@@ -10,10 +10,10 @@ class NoteSearchService
       conditions[:title] = title if title
     end
     # TODO: refactor this
-    if tags.empty?
-      adapter.where(search_options).to_a
-    else
+    if tags
       adapter.tagged_with(tags, any: true).where(search_options).to_a
+    else
+      adapter.where(search_options).to_a
     end
   end
 
