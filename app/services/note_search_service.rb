@@ -6,7 +6,8 @@ class NoteSearchService
 
   def call
     search_options = {}.tap do |conditions|
-      conditions[:state] = state.to_sym if state
+      conditions[:state] = state if state
+      conditions[:title] = title if title
     end
     # TODO: refactor this
     if tags.empty?

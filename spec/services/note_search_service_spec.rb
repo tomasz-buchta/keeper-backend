@@ -10,8 +10,8 @@ RSpec.describe NoteSearchService do
 
   let!(:notes) {
     [
-      Note.create!(state: 'active', tag_list: ["dev", "programming"]),
-      Note.create!(state: 'complete', tag_list: ["dev", "graphql"])
+      Note.create!(state: 'active', title: "Learn GraphQL", tag_list: ["dev", "programming"]),
+      Note.create!(state: 'complete', title: "Use GraphQL", tag_list: ["dev", "graphql"])
     ] 
   }
 
@@ -24,6 +24,12 @@ RSpec.describe NoteSearchService do
   describe "Search by tags" do
     let(:tags) { ["programming"] }
     it { expect(subject.first.state).to eq('active') }
+    it { expect(subject.count).to eq(1) }
+  end
+
+  describe "Search by title" do
+    let(:title) { "Use GraphQL" }
+    it { expect(subject.first.state).to eq('complete') }
     it { expect(subject.count).to eq(1) }
   end
 end
