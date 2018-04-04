@@ -8,7 +8,12 @@ class NoteSearchService
     search_options = {}.tap do |conditions|
       conditions[:state] = state.to_sym if state
     end
-    adapter.where(search_options).to_a
+    # TODO: refactor this
+    if tags.empty?
+      adapter.where(search_options).to_a
+    else
+      adapter.tagged_with(tags, any: true).where(search_options).to_a
+    end
   end
 
   private
