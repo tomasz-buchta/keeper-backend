@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 Note.create!([
-  {title: "Create GraphQL api", body: "placeholder"},
-  {title: "Use GraphQL api", body: "Lorem Ipsum"}
+  {title: "Create GraphQL api", body: "placeholder", state: "archived", tag_list: ["dev", "R&D"] },
+  {title: "Use GraphQL api", body: "Lorem Ipsum", state: "complete", tag_list: ["dev", "improvement"] },
+  {title: "Improve GraphQL api", body: "Lorem Ipsum", state: "active", tag_list: ["ruby", "graphql"] }
 ])
