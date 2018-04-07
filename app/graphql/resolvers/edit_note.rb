@@ -4,6 +4,7 @@ module Resolvers
 
     argument :title, types.String
     argument :body,  types.String
+    argument :color, types.String
     argument :tags,  types[types.String]
     argument :state, StateEnum
 

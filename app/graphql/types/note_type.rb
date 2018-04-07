@@ -6,6 +6,7 @@ Types::NoteType = GraphQL::ObjectType.define do
   field :id, types.ID
   field :title, types.String
   field :body, types.String
+  field :color, types.String
   field :tags, types[types.String], property: :tag_list
 
   StateEnum = GraphQL::EnumType.define do
