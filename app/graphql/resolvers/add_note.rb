@@ -9,7 +9,7 @@ module Resolvers
     type Types::NoteType
 
     def call(_obj, args, _ctx)
-      Note.create(title: args.title, body: args.body, tag_list: args.tags, state: args.state, color: args.color)
+      Note.create!(title: args.title, body: args.body, tag_list: args.tags, state: args.state, color: args.color)
     end
   end
 end

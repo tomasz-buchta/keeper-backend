@@ -27,6 +27,7 @@ gem 'puma', '~> 3.7'
 gem 'rack-cors'
 
 gem 'graphql'
+gem 'graphql-errors'
 
 gem 'acts-as-taggable-on', '~> 5.0'
 
