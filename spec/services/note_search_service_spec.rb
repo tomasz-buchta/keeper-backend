@@ -5,7 +5,7 @@ RSpec.describe NoteSearchService do
   let(:state) { nil }
   let(:title) { nil }
   subject { described_class.new(tags: tags, state: state, title: title).call }
-  it { is_expected.to be_a(Array) }
+  it { is_expected.to be_a(ActiveRecord::Relation) }
   it { is_expected.not_to be_empty }
 
   let!(:notes) {

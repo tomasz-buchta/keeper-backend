@@ -5,19 +5,21 @@ class NoteSearchService
   end
 
   def call
-    search_options = {}.tap do |conditions|
-      conditions[:state] = state if state
-      conditions[:title] = title if title
-    end
-    # TODO: refactor this
-    if tags
-      adapter.tagged_with(tags, any: true).where(search_options).to_a
-    else
-      adapter.where(search_options).to_a
-    end
+    scope_by_tags(adapter).where(search_options)
   end
 
   private
+
+  def search_options
+    {}.tap do |conditions|
+      conditions[:state] = state if state
+      conditions[:title] = title if title
+    end
+  end
+
+  def scope_by_tags(scope)
+    tags ? scope.tagged_with(tags, any: true) : scope
+  end
 
   attr_reader :adapter, :tags, :state, :title
 end
