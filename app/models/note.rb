@@ -5,6 +5,6 @@ class Note < ApplicationRecord
   enum state: [:active, :complete, :archived]
   has_many :comments, dependent: :delete_all
 
-  pg_search_scope :search_for, against: %i(title body)
+  multisearchable against: %i(title body)
   acts_as_taggable
 end
