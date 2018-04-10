@@ -11,4 +11,6 @@ Types::QueryType = GraphQL::ObjectType.define do
       Note.all
     }
   end
+
+  field :phraseSearch, function: Resolvers::SearchPhrase.new
 end
