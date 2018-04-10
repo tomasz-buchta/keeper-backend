@@ -6,7 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 Note.create!([
-  {title: "Create GraphQL api", body: "placeholder", state: "archived", tag_list: ["dev", "R&D"] },
-  {title: "Use GraphQL api", body: "Lorem Ipsum", state: "complete", tag_list: ["dev", "improvement"] },
-  {title: "Improve GraphQL api", body: "Lorem Ipsum", state: "active", tag_list: ["ruby", "graphql"] }
+  {title: "Create GraphQL api", body: "placeholder", state: "archived", tag_list: ["dev", "R&D"], color: "red" },
+  {title: "Use GraphQL api", body: "Lorem Ipsum", state: "complete", tag_list: ["dev", "improvement"], color: "yellow" },
+  {title: "Improve GraphQL api", body: "Lorem Ipsum", state: "active", tag_list: ["ruby", "graphql"], color: "green" }
 ])
+
+Note.all.each do |note|
+  3.times { |i| Comment.create!(note: note, body: "Very interesting number #{i}") }
+end
