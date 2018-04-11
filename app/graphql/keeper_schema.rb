@@ -1,6 +1,13 @@
 KeeperSchema = GraphQL::Schema.define do
   mutation(Types::MutationType)
   query(Types::QueryType)
+  resolve_type ->(obj, ctx) { 
+    byebug
+    case obj
+    when Comment then Types::CommentType
+    when Note then Types::NoteType
+    end
+  }
 end
 
 GraphQL::Errors.configure(KeeperSchema) do
