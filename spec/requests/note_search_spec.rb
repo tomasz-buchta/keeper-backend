@@ -1,4 +1,6 @@
-describe KeeperSchema do
+require 'rails_helper'
+
+describe 'KeeperSchema' do
   let(:context) { {} }
   let(:variables) { {} }
   # Call `result` to execute the query
