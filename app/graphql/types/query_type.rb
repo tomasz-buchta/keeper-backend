@@ -6,6 +6,7 @@ Types::QueryType = GraphQL::ObjectType.define do
   field :noteSearch, function: Resolvers::SearchNote.new
 
   field :notes, !types[Types::NoteType] do
+    deprecation_reason "Use noteSearch without arguments instead"
     description "Fetch all notes"
     resolve ->(_obj, _args, _ctx) {
       Note.all
