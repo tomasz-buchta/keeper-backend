@@ -12,7 +12,7 @@ module Resolvers
 
     def call(_obj, args, _ctx)
       Note.find(args.id).tap do |note|
-        note.update_attributes(title: args.title, body: args.body, tag_list: args.tags, state: args.state)
+        note.update_attributes!(title: args.title, body: args.body, tag_list: args.tags, state: args.state)
       end
     end
   end
